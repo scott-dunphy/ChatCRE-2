@@ -52,9 +52,10 @@ def text_to_speech(text):
       voice="alloy",
       input=text
     )
+    response.stream_to_file(speech_file_path)
     pass
 
-response.stream_to_file(speech_file_path)
+
 
 def chatcre(query):
     docs = docsearch.similarity_search(query, k=5)
