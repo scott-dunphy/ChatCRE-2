@@ -48,7 +48,7 @@ docsearch = Pinecone.from_existing_index(index_name, embeddings)
 chain = load_qa_chain(llm, chain_type="stuff")
 
 def text_to_speech(text):
-    speech_file_path = Path(__file__).parent / "speech.mp3"
+    speech_file_path = "speech.mp3"
     response = client.audio.speech.create(
       model="tts-1",
       voice="alloy",
@@ -74,6 +74,7 @@ try:
     
         # Check if the output.mp3 file exists
         if os.path.isfile('speech.mp3'):
+            st.write("OK to Play!")
             st.audio('speech.mp3', format='audio/mp3')
         else:
             st.error("Error generating audio.")
