@@ -1,0 +1,7 @@
+langchain
+tqdm
+pinecone-client
+tiktoken
+openai
+pydantic
+streamlit-pydantic
