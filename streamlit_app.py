@@ -3,6 +3,7 @@
 
 from langchain.chat_models import ChatOpenAI
 import os
+from io import BytesIO
 from pathlib import Path
 import pinecone
 import streamlit as st
@@ -75,7 +76,14 @@ try:
         # Check if the output.mp3 file exists
         if os.path.isfile('speech.mp3'):
             st.write("OK to Play!")
-            st.audio('speech.mp3', format='audio/mp3')
+            #st.audio('speech.mp3', format='audio/mp3')
+            # Provide a button to download the file
+            with open('speech.mp3', 'rb') as f:
+                audio_bytes = f.read()
+            st.download_button(label='Download Audio', 
+                               data=BytesIO(audio_bytes), 
+                               file_name='speech.mp3', 
+                               mime='audio/mp3')
         else:
             st.error("Error generating audio.")
 except:
