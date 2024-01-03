@@ -68,7 +68,7 @@ query_input = st.text_input("Ask questions about the leases, property updates, a
 try:
     write_value = chatcre(query_input)
     if st.button("Read Aloud"):
-        text_to_speech(text)
+        text_to_speech(write_value)
     
         # Check if the output.mp3 file exists
         if os.path.isfile('speech.mp3'):
