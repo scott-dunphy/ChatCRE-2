@@ -17,7 +17,9 @@ from langchain.chains.question_answering import load_qa_chain
 import glob
 import json
 from tqdm.autonotebook import tqdm
+from openai import OpenAI
 
+client = OpenAI()
 #loaders = [UnstructuredFileLoader(os.path.join(os.getcwd(),fn)) for fn in list(glob.glob("/Users/scottdunphy/Documents/ODCE/*.pdf"))]
 
 os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
