@@ -3,7 +3,7 @@
 
 from langchain.chat_models import ChatOpenAI
 import os
-from pathlib import path
+from pathlib import Path
 import pinecone
 import streamlit as st
 from langchain.chains import RetrievalQA
